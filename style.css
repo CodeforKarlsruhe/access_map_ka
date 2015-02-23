@@ -1,7 +1,9 @@
 img{
-  width:1000px;
+  max-width:4000px;
 }
 
 body {
   font-family:helvetica;
+  max-width: 80%;
+  margin: auto;
 }
