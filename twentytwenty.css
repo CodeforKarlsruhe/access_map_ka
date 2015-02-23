@@ -100,12 +100,12 @@
 .twentytwenty-before-label {
   opacity: 0; }
   .twentytwenty-before-label:before {
-    content: "Top"; }
+    content: "accessible"; }
 
 .twentytwenty-after-label {
   opacity: 0; }
   .twentytwenty-after-label:before {
-    content: "Flop"; }
+    content: "not accessible"; }
 
 .twentytwenty-horizontal .twentytwenty-before-label:before {
   left: 10px; }
