@@ -97,7 +97,7 @@
     -moz-box-sizing: content-box;
     box-sizing: content-box; }
 
-.twentytwenty-before-label {
+/*.twentytwenty-before-label {
   opacity: 0; }
   .twentytwenty-before-label:before {
     content: "not accessible"; }
@@ -105,7 +105,7 @@
 .twentytwenty-after-label {
   opacity: 0; }
   .twentytwenty-after-label:before {
-    content: "accessible"; }
+    content: "accessible"; }*/
 
 .twentytwenty-horizontal .twentytwenty-before-label:before {
   left: 10px; }
