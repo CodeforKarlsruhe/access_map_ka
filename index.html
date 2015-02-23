@@ -7,21 +7,80 @@
 	<script type="text/javascript" src="jquery.event.move.js"></script>
 	<script type="text/javascript" src="jquery.twentytwenty.js"></script>
 	<script type="text/javascript">
-		$(window).load(function() {
-    		$("#container").twentytwenty();
-		});
-	</script>
+    $(window).load(function () {
+      $("#container").twentytwenty();
+
+      var speed = 10;
+      var startPosition;
+      var minPosition;
+      var maxPosition;
+
+      function getPosition() {
+        return parseInt($('.twentytwenty-handle').css('left'), 10);
+      }
+
+      function setPosition(pos) {
+        console.log("setPosition", pos);
+        $('.twentytwenty-handle').css('left', pos + "px");
+      }
+
+      function setClipping(pos) {
+        var clip = $('.twentytwenty-before').css('clip');
+        var parts = clip.split(" ");
+        parts[1] = pos + "px";
+        $('.twentytwenty-before').css('clip', parts.join(' '));
+      }
+
+      function getDistance(evt) {
+        if (isCursorLeftKey(evt)) {
+          return -1 * speed;
+        }
+        if (isCursorRightKey(evt)) {
+          return speed;
+        }
+        return 0;
+      }
+
+      function isCursorLeftKey(evt) {
+        return evt.which === 37;
+      }
+
+      function isCursorRightKey(evt) {
+        return evt.which === 39;
+      }
+
+      function initImageSize(){
+        if(maxPosition === undefined){
+          minPosition = 0;
+          maxPosition = getPosition() * 2;
+        }
+      }
+
+      $("body").keydown(function (evt) {
+        console.log("keydown", evt);
+        initImageSize();
+        var distance = getDistance(evt);
+        if (distance !== 0) {
+          var pos = getPosition() + distance;
+          pos = Math.max(minPosition, Math.min(maxPosition, pos));
+          setPosition(pos);
+          setClipping(pos);
+        }
+      });
+
+    });
+  </script>
 </head>
 <body>
 	<h1>Wie sieht Karlsruhe für Rollstuhlfahrer aus?</h1>
-	<p>Das ist eine Visualisierung der Haltestellen in Karlsruhe (und im KVV-Gebiet), die für Rollstuhlfahrer zug&auml;nglich sind. Du kannst den Slider hin- und her bewegen um zu vergleichen. Die Idee kommt von der Hamburger Initiative <a href="http://mappable.info">Mappable</a>.<br>
+	<p>Das ist eine Visualisierung der Haltestellen in Karlsruhe (und im KVV-Gebiet), die für Rollstuhlfahrer zug&auml;nglich sind. Du kannst den Slider hin- und her bewegen oder deine Pfeiltasten benutzen um zu vergleichen. Die Idee kommt von der Hamburger Initiative <a href="http://mappable.info">Mappable</a>.<br>
 	</p>
 
 	<div id="container">
 		<img src="map.jpg" width="100%">
 		<img src="map_erased.jpg" width="100%">
 	</div>
-	<p>Die Original-Karte wurde vom KVV erstellt und ver&ouml;ffentlicht. Stand: 23. Februar 2015. Visualisierung von <a href="http://codefor.de/karlsruhe">Code for Karlsruhe</a>. Redeployment von <a href="https://github.com/arduina/access_map">Arduina</a>s Projekt aus Berlin.</p>
+	<p>Die Original-Karte wurde vom KVV erstellt und ver&ouml;ffentlicht. Stand: 23. Februar 2015. Visualisierung von <a href="http://codefor.de/karlsruhe">Code for Karlsruhe</a>.<br> Redeployment von <a href="https://github.com/arduina/access_map">Arduina</a>s Projekt aus Berlin.</p>
 </body>
 
 </html>
