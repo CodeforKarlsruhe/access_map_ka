@@ -1,0 +1,26 @@
+<html>
+<head>
+	<title>Accessibility of the Karlsruhe Nahverkehrssystem</title>
+	<link rel="stylesheet" type="text/css" href="twentytwenty.css">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript" src="jquery.event.move.js"></script>
+	<script type="text/javascript" src="jquery.twentytwenty.js"></script>
+	<script type="text/javascript">
+		$(window).load(function() {
+    		$("#container").twentytwenty();
+		});
+	</script>
+</head>
+<body>
+	<h1>What does Karlsruhe look like for people in a wheelchair?</h1>
+	<p>This is a visualization of the Karlsruhe Public Transport System's degree of accessibility. The idea for this comes from the Hamburg initiative <a href="http://mappable.info">Mappable</a>.<br>
+	</p>
+
+	<div id="container">
+		<img src="map.jpg">
+		<img src="map_erased.jpg">
+	</div>
+</body>
+
+</html>
