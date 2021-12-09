@@ -3,7 +3,10 @@ img{
 }
 
 body {
-  font-family:helvetica;
+  font-family:Verdana, sans-serif;
   max-width: 80%;
   margin: 50px auto;
+  color:#444;
+  background-color:#F9F7F5;
 }
+h1,h2,h3{line-height:1.2}
