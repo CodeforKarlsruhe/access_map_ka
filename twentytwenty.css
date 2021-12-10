@@ -44,7 +44,7 @@
 .twentytwenty-before-label:before, .twentytwenty-after-label:before {
   position: absolute;
   background: rgba(255, 255, 255, 0.2);
-  line-height: 38px;
+  line-height: 78px;
   padding: 0 20px;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -139,8 +139,8 @@
   z-index: 10; }
 
 .twentytwenty-handle {
-  height: 38px;
-  width: 38px;
+  height: 78px;
+  width: 78px;
   position: absolute;
   left: 50%;
   top: 50%;
